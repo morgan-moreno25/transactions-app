@@ -1,0 +1,50 @@
+<button
+	type="<%= type %>"
+	tabindex="<%= tabindex %>"
+	class="
+		bg-<%=
+		color
+		%>-600
+		hover:bg-<%=
+		color
+		%>-400
+		text-white
+		font-bold
+		rounded-lg
+		shadow-xl
+		p-2
+		<%
+		if(size
+		===
+		'sm'){
+		%>
+		w-24
+		<%
+		}else
+		if(size
+		===
+		'md'){
+		%>
+		w-32
+		<%
+		}else
+		if(size
+		===
+		'lg')
+		{
+		%>
+		w-48
+		<%
+		}else
+		if(size
+		===
+		'full'){
+		%>
+		w-full
+		<%
+		};
+		%>
+	"
+>
+	<%= text %>
+</button>

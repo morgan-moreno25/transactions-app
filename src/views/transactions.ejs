@@ -1,0 +1,60 @@
+<%- include('partials/header') %>
+
+<div class="h-5/6 flex justify-center items-center bg-gray-500">
+	<form
+		action="/transactions"
+		method="POST"
+		class="
+			flex flex-col
+			justify-evenly
+			items-center
+			w-2/5
+			h-3/5
+			shadow-xl
+			border-2 border-blue-500
+			rounded-lg
+			bg-white
+		"
+	>
+		<div class="flex justify-center items-center flex-col w-full">
+			<label for="date">Date</label>
+			<%- include('partials/form/input', { name: 'date', type: 'date', tabindex: 1 }) %>
+		</div>
+
+		<div class="flex justify-center items-center flex-col w-full">
+			<label for="amount">Amount</label>
+			<%- include('partials/form/input', { name: 'amount', type: 'number', tabindex: 2 }) %>
+		</div>
+
+		<div class="flex justify-center items-center flex-col w-full">
+			<label for="description">Description</label>
+			<%- include('partials/form/input', { name: 'description', type: 'text', tabindex: 3 }) %>
+		</div>
+
+		<div class='flex justify-center items-center flex-col w-full'>
+			<label for='memo'>Memo</label>
+			<%- include('partials/form/textarea', { name: 'memo', tabindex: 4 }) %>
+		</div>
+
+		<div class="flex justify-center items-center flex-col w-full">
+			<label for="type">Type</label>
+			<%- include('partials/form/select', { 
+				name: 'type', 
+				options: [ 
+					{ value: 'income', text: 'Income' }, 
+					{ value: 'expense', text: 'Expense' }, 
+					{ value: 'savingsDeposit', text: 'Savings Deposit' },
+					{ value: 'savingsWithdrawal', text: 'Savings Withdrawal' },
+					{ value: 'reimbursement', text: 'Reimbursement' },
+					{ value: 'investmentDeposit', text: 'Investment Deposit' },
+					{ value: 'investmentWithdrawal', text: 'Investment Withdrawal' }
+				], 
+				tabindex: 5 }) %>
+		</div>
+
+		<div class="flex justify-center items-center w-full">
+			<%- include('partials/form/button', { color: 'blue', text: 'Submit', type: 'submit', size:
+			'lg', tabindex: 6 }) %>
+		</div>
+	</form>
+</div>
