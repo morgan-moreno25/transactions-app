@@ -15,11 +15,7 @@ enum TransactionType {
 }
 
 interface ITransactionController {
-	getAllTransactions: RequestHandler;
-	getTransactionById: RequestHandler;
 	createTransaction: RequestHandler;
-	updateTransaction: RequestHandler;
-	deleteTransaction: RequestHandler;
 }
 
 class TransactionController implements ITransactionController {
@@ -43,10 +39,6 @@ class TransactionController implements ITransactionController {
         `;
 	}
 
-	getAllTransactions = asyncHandler(async (req, res, next) => {
-		res.render('transactions.ejs');
-	});
-	getTransactionById = asyncHandler(async (req, res, next) => {});
 	createTransaction = asyncHandler(async (req, res, next) => {
 		const { date, amount, description, type, memo } = req.body;
 
@@ -75,8 +67,6 @@ class TransactionController implements ITransactionController {
 
 		return res.redirect('/transactions');
 	});
-	updateTransaction = asyncHandler(async (req, res, next) => {});
-	deleteTransaction = asyncHandler(async (req, res, next) => {});
 }
 
 export default new TransactionController(db);
